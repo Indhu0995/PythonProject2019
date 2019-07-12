@@ -1,0 +1,96 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+$("table > tbody > tr").hide().slice(0, 50).show();
+})
+
+</script>
+    <style>
+input{
+width:200px;
+}
+table{
+width:200;
+margin:10px 0;
+}
+table thead{
+background-color:#efefef !important;
+width:80px;
+}
+table thead td{
+text-align:center;
+text-transform:uppercase;
+font-size:12px;
+}
+input{
+display:block;
+}
+table,td{
+border:1px solid #999;
+border-collapse:collapse;
+background-color:#fff;
+}
+.container{
+width:40%;
+margin:0 auto;
+background: #ccc;
+padding:20px;
+background-color:#ececec;
+border-radius: 5px;
+}
+</style>
+</head>
+<body >
+<center>
+<img src="https://static1.squarespace.com/static/5abe00c44611a0a85439c1ff/t/5abfc788aa4a998a3b690333/1537886232541/FRANCE-01.jpg" alt="amazon.fr" style="width:350px;height:100px;border:0;">
+<div style="background-color:white">
+
+    <div class="container">
+<h3>ADD BOOKS</h3>
+
+<form method="POST" action="/">
+<input type="text" name="product" placeholder="Enter book name ..."/>
+<input type="submit" value="ADD" STYLE="color:#FFFFFF; background-color:#FF9900;"></tr></table>
+</form>
+
+<table >
+    <thead><tr><td>Index</td><td>Book Name</td></tr></thead>
+<tbody>
+{% for prod in prods %}
+<tr>
+<td>
+{{ loop.index }}
+</td>
+    <td>
+{{prod.product}}
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+    <form method="POST" action="./delete">
+<input   name="product" placeholder="Enter book name to delete ...">
+<input type="submit" value="DELETE" STYLE="color:#FFFFFF; background-color:#FF9900;">
+</form>
+    <h3>UPDATE BOOKS</h3>
+
+    <form action="./update" method="POST">
+
+
+<input type="text" name="oldname" placeholder="Choose old book name ...">
+        <input type="text" name="newname" placeholder="Enter new book name ..." >
+        <input type="submit"value="UPDATE" STYLE="color:#FFFFFF; background-color:#FF9900;">
+
+</form>
+
+
+    </div>
+</div>
+</center>
+</body>
+
+</html>
